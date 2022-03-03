@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <WarnOn>3390;$(WarnOn)</WarnOn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="GoodiesToGo.fs" />
+    <Compile Include="File4.fs" />
+    <Compile Include="File3.fs" />
+    <Compile Include="File2.fs" />
+    <Compile Include="pclEx2.fs" />
+    <Compile Include="File1.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>
