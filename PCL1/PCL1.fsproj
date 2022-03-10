@@ -8,11 +8,6 @@
 
   <ItemGroup>
     <Compile Include="GoodiesToGo.fs" />
-    <Compile Include="File4.fs" />
-    <Compile Include="File3.fs" />
-    <Compile Include="File2.fs" />
-    <Compile Include="pclEx2.fs" />
-    <Compile Include="File1.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

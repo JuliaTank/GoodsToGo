@@ -1,12 +1,12 @@
 ﻿
 module GoodiesToGo
 
-type Customer = VIAPerson | SOSUPerson 
+type Customer = | VIAPerson | SOSUPerson 
 
-type Size = Small | Medium | Large
-type CoffeType = Latte | Mocca | Cappuchino
-type TeaType  = EarlGrey | GreenTea | BlackTea
-type JuiceType = AppleJuice | OrangeJuice | GrapeJuice
+type Size = | Small | Medium | Large
+type CoffeType = | Latte | Mocca | Cappuchino
+type TeaType  = | EarlGrey | GreenTea | BlackTea
+type JuiceType = | AppleJuice | OrangeJuice | GrapeJuice
 
 
 type Coffe = {
@@ -20,11 +20,13 @@ size: Size
 }
 
 type Juice = {
-juiceType = JuiceType
+juiceType:  JuiceType
 size: Size
 }
 
-type Drink = Coffe | Tea | Juice
+type Drink = | Coffe of Coffe | Tea of Tea | Juice of Juice
+
+
 
 
 let coffePrice (coffe:Coffe) = 
@@ -45,8 +47,14 @@ let juicePrice (juice:Juice) =
     | OrangeJuice -> if juice.size = Small then 5 elif juice.size = Medium then 7 else 9  
     | GrapeJuice -> if juice.size = Small then 5 elif juice.size = Medium then 7 else 9 
 
-let calculatePrice d:Drink = 
-    match 
+let calculatePrice d = 
+    match d with 
+    | Coffe c -> coffePrice c
+    | Tea t-> teaPrice t
+    | Juice j-> juicePrice j
 
 
+let smallLatte = { coffeType = CoffeType.Latte; size = Size.Small; }
+let total = calculatePrice (Coffe(smallLatte))
+let totalOrderPrice = calculatePrice (Coffe(smallLatte)) + calculatePrice (Tea({ teaType = TeaType.BlackTea; size = Size.Small; }))
 
